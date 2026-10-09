@@ -179,3 +179,8 @@ h2 em{color:var(--purple)}
  .footer{padding:32px 0}
  .marquee{padding:22px 0}.track span{font-size:18px}
 }
+
+/* foto de fundo do hero */
+.hero-bg::before{content:"";position:absolute;inset:0;background:url(assets/img/hero-bg.jpg) center/cover;opacity:.38;mix-blend-mode:luminosity}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(46,10,44,.5),transparent 65%)}
+@media(max-width:900px){.hero-bg::after{background:linear-gradient(0deg,rgba(46,10,44,.6),transparent 70%)}}
