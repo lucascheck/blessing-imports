@@ -48,7 +48,7 @@ em{font-style:normal;font-weight:inherit}
 .rating small{opacity:.8}
 .tags{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0 18px}
 .tags span{font-size:11px;font-weight:600;padding:5px 12px;border-radius:999px;background:rgba(255,255,255,.14)}
-h1{font-size:clamp(38px,6.2vw,72px);line-height:1.02;letter-spacing:-.035em;font-weight:900;max-width:640px}
+h1{font-size:clamp(32px,5vw,58px);line-height:1.02;letter-spacing:-.035em;font-weight:900;max-width:640px}
 h1 em{color:var(--lime)}
 .lead{max-width:480px;margin:18px 0 28px;color:rgba(255,255,255,.92);font-size:16px;font-weight:500}
 .cta-row{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
