@@ -18,3 +18,23 @@ const io = new IntersectionObserver(entries => entries.forEach(e => {
 
 document.querySelectorAll('section[id]').forEach(s => io.observe(s));
 document.querySelectorAll('.card,.step,.final-box,.about-txt').forEach(el => { el.classList.add('rv'); io.observe(el); });
+
+// Arrastar o carrossel com o mouse (no celular o toque já funciona nativamente)
+let down = false, moved = false, startX = 0, startLeft = 0;
+cards.addEventListener('pointerdown', e => {
+  if (e.pointerType !== 'mouse') return;
+  down = true; moved = false; startX = e.clientX; startLeft = cards.scrollLeft;
+});
+window.addEventListener('pointermove', e => {
+  if (!down) return;
+  const dx = e.clientX - startX;
+  if (!moved && Math.abs(dx) > 5) { moved = true; cards.classList.add('dragging'); }
+  if (moved) cards.scrollLeft = startLeft - dx;
+});
+window.addEventListener('pointerup', () => {
+  if (!down) return;
+  down = false;
+  cards.classList.remove('dragging');
+});
+cards.addEventListener('click', e => { if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; } }, true);
+cards.addEventListener('dragstart', e => e.preventDefault());

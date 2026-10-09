@@ -151,3 +151,8 @@ h2 em{color:var(--purple)}
  .foot p{text-align:left}
 }
 @media(prefers-reduced-motion:reduce){.track{animation:none}.rv{transition:none}}
+
+/* carrossel arrastável */
+.cards{cursor:grab;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
+.cards.dragging{cursor:grabbing;scroll-snap-type:none;scroll-behavior:auto;user-select:none}
+.cards.dragging .card{pointer-events:none}
