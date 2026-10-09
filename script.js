@@ -1,6 +1,16 @@
 const menu = document.getElementById('menu');
-document.getElementById('burger').addEventListener('click', () => menu.classList.toggle('open'));
-menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+const burger = document.getElementById('burger');
+const setMenu = open => {
+  menu.classList.toggle('open', open);
+  burger.classList.toggle('open', open);
+  burger.setAttribute('aria-expanded', open);
+  burger.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+};
+burger.addEventListener('click', () => setMenu(!menu.classList.contains('open')));
+menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+document.addEventListener('click', e => { if (!e.target.closest('.nav')) setMenu(false); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+window.addEventListener('resize', () => { if (innerWidth > 900) setMenu(false); });
 
 const cards = document.getElementById('cards');
 const step = () => cards.querySelector('.card').offsetWidth + 16;
